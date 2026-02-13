@@ -1,6 +1,7 @@
 const heart = document.querySelector('.heart');
+const text = document.querySelector('.love-text');
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', () => {
   if (heart.classList.contains('burst')) return;
 
   heart.classList.add('burst');
@@ -22,7 +23,12 @@ document.addEventListener('click', (e) => {
     fragment.style.setProperty('--y', y + 'px');
 
     document.body.appendChild(fragment);
-
     setTimeout(() => fragment.remove(), 800);
   }
+
+  // ✨ показываем текст ПОСЛЕ взрыва
+  setTimeout(() => {
+    text.classList.add('show');
+  }, 600);
 });
+
